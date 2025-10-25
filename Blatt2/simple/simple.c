@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> //für die Nutzung von memcpy()
 
 int *mistakes1(void) {
   int buf[] = {1, 1, 2, 3, 4, 5};
