@@ -1,0 +1,77 @@
+Aufgabe 1.1 
+
+Eingabe                     Ausgabe 
+_______________________________________________________________________
+gdb ./simple                GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.2) 9.2
+                            Copyright (C) 2020 Free Software Foundation, Inc.
+                            License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+                            This is free software: you are free to change and redistribute it.
+                            There is NO WARRANTY, to the extent permitted by law.
+                            Type "show copying" and "show warranty" for details.
+                            This GDB was configured as "x86_64-linux-gnu".
+                            Type "show configuration" for configuration details.
+                            For bug reporting instructions, please see:
+                            <http://www.gnu.org/software/gdb/bugs/>.
+                            Find the GDB manual and other documentation resources online at:
+                                <http://www.gnu.org/software/gdb/documentation/>.
+
+                            For help, type "help".
+                            Type "apropos word" to search for commands related to "word"...
+                            Reading symbols from ./simple...
+
+break mistakes1             Breakpoint 1 at 0x401160: file simple.c, line 10.
+
+run                         Starting program: /home/pawelczyk/HR/HR/Blatt2/simple/simple 
+
+                            Breakpoint 1, mistakes1 () at simple.c:10
+                            10        int buf[] = {1, 1, 2, 3, 4, 5};
+
+print buf                   $1 = {0, 0, 0, 0, 0, 0}
+
+print buf[2]                $2 = 0
+
+next                        11        return buf;
+
+print buf                   $3 = {1, 1, 2, 3, 4, 5}
+
+print buf[2]                $4 = 2
+________________________________________________________________________________________
+
+Welchen Typ hat buf?        buf ist ein int-Array
+________________________________________________________________________________________
+
+break mistakes2             Breakpoint 2 at 0x401146: file simple.c, line 14.
+
+continue                    Continuing.
+
+                            Breakpoint 2, mistakes2 () at simple.c:14
+                            14      int *mistakes2(void) {
+
+ptype buf                   type = int *
+
+continue                    Continuing.
+
+                            Program received signal SIGSEGV, Segmentation fault.
+                            mistakes3 () at simple.c:24
+                            24        buf[0] = 3;
+
+list                        19
+                            20      int *mistakes3(void) {
+                            21        /* In dieser Funktion darf kein Speicher direkt d.h. explizit allokiert werden. */
+                            22        int mistakes2_ = 0;
+                            23        int *buf = (int *)&mistakes2;
+                            24        buf[0] = 3;
+                            25        return buf;
+                            26      }
+                            27
+                            28      int *mistakes4(void) {
+
+backtrace#0                 mistakes3 () at simple.c:24
+                            #1  0x0000000000401219 in main () at simple.c:43
+
+frame 1                     #1  0x0000000000401219 in main () at simple.c:43
+                            43        int *p[5] = {&mistakes1()[1], &mistakes2()[1], mistakes3(), mistakes4(), mistakes5()+4}
+
+print p                     $5 = {0x4, 0x4052a4, 0xc2, 0x7fffffff7f47, 0x7fffffff7f46}
+
+call mistakes4()            $6 = (int *) 0x4052c0
