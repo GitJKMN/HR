@@ -20,8 +20,6 @@
 /* Include standard header file.                                            */
 /* ************************************************************************ */
 #include "partdiff-seq.h"
-#include "askparams.c"
-#include "displaymatrix.c"
 #include <malloc.h>
 #include <math.h>
 #include <stdio.h>
