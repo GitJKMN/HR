@@ -1,0 +1,112 @@
+Batch Queuing
+
+1. Was bedeutet der Begriff Batch Queuing im HPC-Bereich, welches Problem wird
+damit gelöst?
+
+	Eine Batch ist eine Reihe von sequenziellen Aufgaben bzw. Anweisungen, die in Form eines sogenannten Jobskriptes von einem Cluster 	abgearbeitet werden sollen. Batch Queuing Systeme sorgen dafür , dass eingehende Batches in einer Warteschlange eingefügt werden, 	damit der Zugriff auf Ressourcen fair, effizient und organisiert auf dem Cluster stattfindet. Dadurch verhindert man unter anderem 	die Überlastung bzw. Unterlastung von Rechnerknoten und das blockieren von Rechenleistung. 
+
+2. Nennen Sie drei Beispiele für HPC-Batch-Queuing-Systeme
+
+	Slurm, PBS/Torque, IBM LSF
+
+3. Welches Batch-Queuing-System wird auf dem WR-Cluster verwendet?
+
+	Slurm 
+
+4. Machen Sie sich mit der Manpage von sbatch vertraut. Beschreiben Sie die Funktionsweise des Kommandos.
+
+	sbatch gibt eine Batch an das Batch Queuing System weiter und wird dann der Warteschlange hinzugefügt. Dabei wird dann eine 	spezifische JobID zurückgegeben 
+
+5. Wie lassen sich die aktuellen Jobs und deren Status auf der Kommandozeile
+anzeigen?
+
+	squeue
+
+6. Machen Sie sich mit dem Befehl sview vertraut. Beschreiben Sie die wichtigsten
+Vorteile gegenüber dem vorigen Punkt.
+
+	sview bietet ein graphische Schnittstelle für Nutzende 
+		Zusätzlich:
+		- Übersicht über Clusternodes (Auslastung, Status)
+		- Verwaltung von Batches
+
+7. Gibt es eine Möglichkeit, einen bereits abgeschickten Job zu löschen (bevor oder
+während er läuft)? Wenn ja, wie?
+
+	in bash: scancel <JobID>
+	in der GUI von sview: interaktiv den Job abbrechen, falls erlaubt
+	
+8. Finden Sie heraus wie Sie sich den detaillierten Status eines Jobs (seine Konfiguration) ausgeben lassen können.
+
+	scontrol show job <JobID>
+
+9. Können auf dem Cluster mehrere Nutzer oder Jobs gleichzeitig denselben westKnoten benutzen?
+
+	Es können mehrere Nutzende oder Jobs den Knoten benutzen insofern nicht mit 
+
+	srun --exclusive 
+
+	ausgeführt wurde.
+
+10. Welche Scheduling-Verfahren sind bei dem auf dem Cluster benutzten System
+möglich? Welches wird benutzt? Erläutern Sie jedes der Verfahren kurz.
+
+	First In, First Out: Jobs werden wie eine Warteschlange abgearbeitet
+	
+	Backfill: Wenige Rechenintensive Jobs werden als Lückenfüller vorgezogen für erhöhte Effizienz
+
+	Priority Scheduling: Jobs werden Prioritäten bezüglich der Abarbeitungsreihenfolge zugeschrieben
+
+11. Finden Sie heraus, wie Sie einen einzelnen Knoten allokieren können. Allokieren
+Sie gezielt einen bestimmten Knoten (z. B. west7), bauen Sie mittels ssh eine
+Verbindung zu diesem Knoten auf und führen sie hostname darauf aus.
+
+	srun --nodelist=west7 --pty bash
+
+	ssh west7
+
+	hostname
+
+12. Wie hoch ist das Zeitlimit auf dem Cluster, bis ein Knoten spätestens wieder
+freigegeben wird?
+
+	Standardmäßig 24 Stunden Maximalzeit
+
+13. Wie können Sie die Priorität Ihrer Jobs nachschauen? Können Sie diese verändern
+oder beeinflussen?
+
+	sprio
+
+	Als Admin kann man: scontrol update JobId=<JobID> Nice=<value> anwenden um über den Nice-Wert die Priorität zu ändern
+
+14. Welche unterschiedlichen Partitionen sind auf dem Cluster eingerichtet? Wie
+kann die zu benutzende Partition geändert werden?
+		
+	amd
+	magny
+	nehalem
+	west
+	
+
+
+
+Aufgabe 2
+
+	Führen Sie das Script mehrmals aus.
+	Frage: Was fällt Ihnen auf? Versuchen Sie Ihre Beobachtung zu erklären!
+
+		Nach mehrmaliger Ausführung stellt man einen Nicht-Determinismus in der Reihenfolge der Ausgabe von Prozessen fest. Da 			Prozesse nun parallel ausgeführt werden kann die Ausgabe dementsprechend auch nicht mehr garantiert seriell stattfinden.
+	
+
+	Frage:Könnte man die Datei print_output.out auch innerhalb des Scriptes
+	print_output.sh erzeugen? Falls ja: Wie? Falls nein: Warum nicht?
+
+		echo "$HOSTNAME //$TIMESTAMP" >> print_output.out
+
+		
+Aufgabe 3 
+
+	Was sind mögliche Konsequenzen, wenn -Ofast benutzt wird?
+
+		Durch -0fast können minimale Rundungsfehler bei Float/Double-Operationen entstehen.
+
