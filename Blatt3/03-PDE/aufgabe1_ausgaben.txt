@@ -1,0 +1,44 @@
+Batch Queuing
+
+1. Was bedeutet der Begriff Batch Queuing im HPC-Bereich, welches Problem wird
+damit gelöst?
+
+	Eine Batch ist eine Reihe von sequenziellen Aufgaben bzw. Anweisungen, die in Form eines sogenannten Jobskriptes von einem Cluster 	abgearbeitet werden sollen. Batch Queuing Systeme sorgen dafür , dass eingehende Batches in einer Warteschlange eingefügt werden, 	damit der Zugriff auf Ressourcen fair, effizient und organisiert auf dem Cluster stattfindet. Dadurch verhindert man unter anderem 	die Überlastung bzw. Unterlastung von Rechnerknoten und das blockieren von Rechenleistung. 
+
+2. Nennen Sie drei Beispiele für HPC-Batch-Queuing-Systeme
+
+	Slurm, PBS/Torque, IBM LSF
+
+3. Welches Batch-Queuing-System wird auf dem WR-Cluster verwendet?
+
+	Slurm 
+
+4. Machen Sie sich mit der Manpage von sbatch vertraut. Beschreiben Sie die Funktionsweise des Kommandos.
+
+	sbatch gibt eine Batch an das Batch Queuing System weiter und wird dann der Warteschlange hinzugefügt. Dabei wird dann eine 	spezifische JobID zurückgegeben 
+
+5. Wie lassen sich die aktuellen Jobs und deren Status auf der Kommandozeile
+anzeigen?
+
+	squeue
+
+6. Machen Sie sich mit dem Befehl sview vertraut. Beschreiben Sie die wichtigsten
+Vorteile gegenüber dem vorigen Punkt.
+
+	sview bietet ein graphische Schnittstelle für Nutzende 
+		Zusätzlich:
+		- Übersicht über Clusternodes (Auslastung, Status)
+		- Verwaltung von Batches
+
+7. Gibt es eine Möglichkeit, einen bereits abgeschickten Job zu löschen (bevor oder
+während er läuft)? Wenn ja, wie?
+
+	
+	in bash: scancel <JobID>
+	in der GUI von sview: interaktiv den Job abbrechen, falls erlaubt
+	
+
+		
+
+
+

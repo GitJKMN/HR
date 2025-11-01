@@ -17,11 +17,11 @@
 /* ************************************************************************ */
 /* Include standard header file.                                            */
 /* ************************************************************************ */
+#include <stdlib.h>
 #include "partdiff-seq.h"
 #include <malloc.h>
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/time.h>
 
 struct calculation_arguments {
