@@ -29,6 +29,8 @@
 
 #include "partdiff.h"
 
+#include <omp.h>
+
 struct calculation_arguments {
   uint64_t N;            /* number of spaces between lines (lines=N+1)     */
   uint64_t num_matrices; /* number of matrices                             */
@@ -188,6 +190,7 @@ static void calculate(struct calculation_arguments const *arguments,
     fpisin = 0.25 * TWO_PI_SQUARE * h * h;
   }
 
+  omp_set_num_threads(4);
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
@@ -195,6 +198,7 @@ static void calculate(struct calculation_arguments const *arguments,
     maxResiduum = 0;
 
     /* over all rows */
+    #pragma omp parallel for private(residuum, star) reduction(max:maxResiduum)
     for (i = 1; i < N; i++) {
       double fpisin_i = 0.0;
 
@@ -205,7 +209,7 @@ static void calculate(struct calculation_arguments const *arguments,
       /* over all columns */
       for (j = 1; j < N; j++) {
         star = 0.25 * (Matrix_In[i - 1][j] + Matrix_In[i][j - 1] +
-                       Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
+                      Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
 
         if (options->inf_func == FUNC_FPISIN) {
           star += fpisin_i * sin(pih * (double)j);
@@ -230,6 +234,8 @@ static void calculate(struct calculation_arguments const *arguments,
     m2 = i;
 
     /* check for stopping calculation depending on termination method */
+
+    
     if (options->termination == TERM_PREC) {
       if (maxResiduum < options->term_precision) {
         term_iteration = 0;
