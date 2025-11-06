@@ -17,11 +17,11 @@
 /* ************************************************************************ */
 /* Include standard header file.                                            */
 /* ************************************************************************ */
+#include <stdlib.h>
 #include "partdiff-seq.h"
 #include <malloc.h>
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/time.h>
 
 struct calculation_arguments {
@@ -153,6 +153,7 @@ static void initMatrices(struct calculation_arguments* arguments, struct options
 /* ************************************************************************ */
 double getResiduum(struct calculation_arguments* arguments, struct options* options, int x, int y, double star)
 {
+    /*
     double* result = malloc(sizeof(double));
     if (options->inf_func == FUNC_F0) {
         *result = ((-star) / 4.0);
@@ -164,6 +165,17 @@ double getResiduum(struct calculation_arguments* arguments, struct options* opti
             / 4.0);
         return *result;
     }
+    */
+    
+    if (options->inf_func == FUNC_F0) {
+        return ((-star) / 4.0);
+    } else {
+        double h = arguments->h;
+        return (TWO_PI_SQUARE * sin(y * PI * h) * sin(x * PI * h)
+                * h * h - star) / 4.0;
+    }
+    
+
 }
 
 /* ************************************************************************ */
@@ -191,22 +203,30 @@ static void calculate(
     }
 
     while (options->term_iteration > 0) {
-
+        results->stat_precision = 0;
         /* over all rows */
-        for (j = 1; j < N; j++) {
-            /* over all columns */
-            for (i = 1; i < N; i++) {
+        
+        for (i = 1; i < N; i++) {
+            //over all columns 
+            for (j = 1; j < N; j++) {
+                /*
                 if (i == 1 && j == 1) {
                     results->stat_precision = 0;
                 }
+                */
                 star = -Matrix[m2][i - 1][j] - Matrix[m2][i][j - 1] - Matrix[m2][i][j + 1] - Matrix[m2][i + 1][j]
                     + 4.0 * Matrix[m2][i][j];
-
-                residuum = getResiduum(arguments, options, i, j, star);
-                korrektur = residuum;
-                residuum = (residuum < 0) ? -residuum : residuum;
+                /*
+                residuum = getResiduum(arguments, options, i, j, star); 
+                korrektur = residuum; residuum = (residuum < 0) ? -residuum : residuum; 
                 results->stat_precision = (residuum < results->stat_precision) ? results->stat_precision : residuum;
-
+                */
+                residuum = fabs(getResiduum(arguments, options, i, j, star));
+                korrektur = residuum;
+                if(residuum > results->stat_precision) {
+                    results->stat_precision = residuum;
+                }
+                
                 Matrix[m1][i][j] = Matrix[m2][i][j] + korrektur;
             }
         }

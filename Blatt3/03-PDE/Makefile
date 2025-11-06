@@ -2,7 +2,8 @@
 CC = gcc
 
 # Compiler flags, paths and libraries
-CFLAGS = -std=c11 -pedantic -Wall -Wextra -O0 -gdwarf-4
+#CFLAGS = -std=c11 -pedantic -Wall -Wextra -O3 -gdwarf-4 -pg
+CFLAGS = -std=c11 -march=native -flto -O3 -pg
 LFLAGS = $(CFLAGS)
 LIBS   = -lm
 
