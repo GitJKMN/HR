@@ -190,7 +190,7 @@ static void calculate(struct calculation_arguments const *arguments,
     fpisin = 0.25 * TWO_PI_SQUARE * h * h;
   }
 
-  omp_set_num_threads(4);
+  omp_set_num_threads(12);
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
