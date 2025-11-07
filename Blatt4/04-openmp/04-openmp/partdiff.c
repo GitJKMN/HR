@@ -190,7 +190,7 @@ static void calculate(struct calculation_arguments const *arguments,
     fpisin = 0.25 * TWO_PI_SQUARE * h * h;
   }
 
-  omp_set_num_threads(12);
+  omp_set_num_threads(options->number);
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
@@ -198,7 +198,7 @@ static void calculate(struct calculation_arguments const *arguments,
     maxResiduum = 0;
 
     /* over all rows */
-    #pragma omp parallel for private(residuum, star) reduction(max:maxResiduum)
+    #pragma omp parallel for if (options->method == METH_JACOBI) default(none) private(i, j, residuum, star) shared(Matrix_In, Matrix_Out, N, fpisin, pih, options, term_iteration) reduction(max:maxResiduum)
     for (i = 1; i < N; i++) {
       double fpisin_i = 0.0;
 
