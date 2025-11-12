@@ -1,0 +1,775 @@
+make: Nothing to be done for 'all'.
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 1 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 2 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 3 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 4 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 5 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 6 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 7 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 8 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 9 beendet
+/var/lib/slurm-llnl/slurmd/job185061/slurm_script: line 12: potenz: command not found
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Usage: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp [num] [method] [lines] [func] [term] [prec/iter]
+
+  - num:       number of threads (1 .. 1024)
+  - method:    calculation method (1 .. 2)
+                 1: Gauß-Seidel
+                 2: Jacobi
+  - lines:     number of interlines (0 .. 10240)
+                 matrixsize = (interlines * 8) + 9
+  - func:      interference function (1 .. 2)
+                 1: f(x,y) = 0
+                 2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
+  - term:      termination condition ( 1.. 2)
+                 1: sufficient precision
+                 2: number of iterations
+  - prec/iter: depending on term:
+                 precision:  1e-4 .. 1e-20
+                 iterations:    1 .. 200000
+
+Example: /home/pawelczyk/HR/Blatt4/04-openmp/04-openmp/./partdiff-openmp 1 2 100 1 2 100 
+Lauf 10 beendet
+make: Nothing to be done for 'all'.
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.190566 s 
+Speicherbedarf:     0.009537 MiB
+Berechnungsmethode: Jacobi
+Interlines:         2
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   0.00000000000e+00
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14665590 0.27098477 0.35405866 0.38323033 0.35405866 0.27098477 0.14665590 0.00000000
+ 0.00000000 0.27098477 0.50071456 0.65421510 0.70811732 0.65421510 0.50071456 0.27098477 0.00000000
+ 0.00000000 0.35405866 0.65421510 0.85477322 0.92519987 0.85477322 0.65421510 0.35405866 0.00000000
+ 0.00000000 0.38323033 0.70811732 0.92519987 1.00142912 0.92519987 0.70811732 0.38323033 0.00000000
+ 0.00000000 0.35405866 0.65421510 0.85477322 0.92519987 0.85477322 0.65421510 0.35405866 0.00000000
+ 0.00000000 0.27098477 0.50071456 0.65421510 0.70811732 0.65421510 0.50071456 0.27098477 0.00000000
+ 0.00000000 0.14665590 0.27098477 0.35405866 0.38323033 0.35405866 0.27098477 0.14665590 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 1 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.311588 s 
+Speicherbedarf:     0.025650 MiB
+Berechnungsmethode: Jacobi
+Interlines:         4
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   0.00000000000e+00
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14652191 0.27073719 0.35373519 0.38288021 0.35373519 0.27073719 0.14652191 0.00000000
+ 0.00000000 0.27073719 0.50025710 0.65361740 0.70747038 0.65361740 0.50025710 0.27073719 0.00000000
+ 0.00000000 0.35373519 0.65361740 0.85399229 0.92435459 0.85399229 0.65361740 0.35373519 0.00000000
+ 0.00000000 0.38288021 0.70747038 0.92435459 1.00051420 0.92435459 0.70747038 0.38288021 0.00000000
+ 0.00000000 0.35373519 0.65361740 0.85399229 0.92435459 0.85399229 0.65361740 0.35373519 0.00000000
+ 0.00000000 0.27073719 0.50025710 0.65361740 0.70747038 0.65361740 0.50025710 0.27073719 0.00000000
+ 0.00000000 0.14652191 0.27073719 0.35373519 0.38288021 0.35373519 0.27073719 0.14652191 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 2 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.711682 s 
+Speicherbedarf:     0.081314 MiB
+Berechnungsmethode: Jacobi
+Interlines:         8
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   2.22044604925e-16
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14646985 0.27064099 0.35360949 0.38274415 0.35360949 0.27064099 0.14646985 0.00000000
+ 0.00000000 0.27064099 0.50007934 0.65338514 0.70721898 0.65338514 0.50007934 0.27064099 0.00000000
+ 0.00000000 0.35360949 0.65338514 0.85368882 0.92402612 0.85368882 0.65338514 0.35360949 0.00000000
+ 0.00000000 0.38274415 0.70721898 0.92402612 1.00015867 0.92402612 0.70721898 0.38274415 0.00000000
+ 0.00000000 0.35360949 0.65338514 0.85368882 0.92402612 0.85368882 0.65338514 0.35360949 0.00000000
+ 0.00000000 0.27064099 0.50007934 0.65338514 0.70721898 0.65338514 0.50007934 0.27064099 0.00000000
+ 0.00000000 0.14646985 0.27064099 0.35360949 0.38274415 0.35360949 0.27064099 0.14646985 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 3 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    1.691923 s 
+Speicherbedarf:     0.286392 MiB
+Berechnungsmethode: Jacobi
+Interlines:         16
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   4.25919874925e-08
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14642975 0.27056690 0.35351268 0.38263937 0.35351268 0.27056690 0.14642975 0.00000000
+ 0.00000000 0.27056690 0.49994243 0.65320627 0.70702537 0.65320627 0.49994243 0.27056690 0.00000000
+ 0.00000000 0.35351268 0.65320627 0.85345512 0.92377316 0.85345512 0.65320627 0.35351268 0.00000000
+ 0.00000000 0.38263937 0.70702537 0.92377316 0.99988487 0.92377316 0.70702537 0.38263937 0.00000000
+ 0.00000000 0.35351268 0.65320627 0.85345512 0.92377316 0.85345512 0.65320627 0.35351268 0.00000000
+ 0.00000000 0.27056690 0.49994243 0.65320627 0.70702537 0.65320627 0.49994243 0.27056690 0.00000000
+ 0.00000000 0.14642975 0.27056690 0.35351268 0.38263937 0.35351268 0.27056690 0.14642975 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 4 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    5.622016 s 
+Speicherbedarf:     1.071548 MiB
+Berechnungsmethode: Jacobi
+Interlines:         32
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   6.95843930965e-06
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.13205692 0.24400937 0.31881360 0.34508136 0.31881360 0.24400937 0.13205692 0.00000000
+ 0.00000000 0.24400937 0.45087052 0.58909072 0.63762720 0.58909072 0.45087052 0.24400937 0.00000000
+ 0.00000000 0.31881360 0.58909072 0.76968412 0.83310009 0.76968412 0.58909072 0.31881360 0.00000000
+ 0.00000000 0.34508136 0.63762720 0.83310009 0.90174104 0.83310009 0.63762720 0.34508136 0.00000000
+ 0.00000000 0.31881360 0.58909072 0.76968412 0.83310009 0.76968412 0.58909072 0.31881360 0.00000000
+ 0.00000000 0.24400937 0.45087052 0.58909072 0.63762720 0.58909072 0.45087052 0.24400937 0.00000000
+ 0.00000000 0.13205692 0.24400937 0.31881360 0.34508136 0.31881360 0.24400937 0.13205692 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 5 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    18.772457 s 
+Speicherbedarf:     4.141861 MiB
+Berechnungsmethode: Jacobi
+Interlines:         64
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   1.00362182169e-05
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.06591297 0.12179128 0.15912798 0.17223888 0.15912798 0.12179128 0.06591297 0.00000000
+ 0.00000000 0.12179128 0.22504094 0.29403016 0.31825595 0.29403016 0.22504094 0.12179128 0.00000000
+ 0.00000000 0.15912798 0.29403016 0.38416892 0.41582144 0.38416892 0.29403016 0.15912798 0.00000000
+ 0.00000000 0.17223888 0.31825595 0.41582144 0.45008189 0.41582144 0.31825595 0.17223888 0.00000000
+ 0.00000000 0.15912798 0.29403016 0.38416892 0.41582144 0.38416892 0.29403016 0.15912798 0.00000000
+ 0.00000000 0.12179128 0.22504094 0.29403016 0.31825595 0.29403016 0.22504094 0.12179128 0.00000000
+ 0.00000000 0.06591297 0.12179128 0.15912798 0.17223888 0.15912798 0.12179128 0.06591297 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 6 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    71.554333 s 
+Speicherbedarf:     16.282486 MiB
+Berechnungsmethode: Jacobi
+Interlines:         128
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 32766
+Norm des Fehlers:   3.98086041184e-06
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.02062830 0.03811613 0.04980112 0.05390434 0.04980112 0.03811613 0.02062830 0.00000000
+ 0.00000000 0.03811613 0.07042942 0.09202047 0.09960224 0.09202047 0.07042942 0.03811613 0.00000000
+ 0.00000000 0.04980112 0.09202047 0.12023054 0.13013660 0.12023054 0.09202047 0.04980112 0.00000000
+ 0.00000000 0.05390434 0.09960224 0.13013660 0.14085884 0.13013660 0.09960224 0.05390434 0.00000000
+ 0.00000000 0.04980112 0.09202047 0.12023054 0.13013660 0.12023054 0.09202047 0.04980112 0.00000000
+ 0.00000000 0.03811613 0.07042942 0.09202047 0.09960224 0.09202047 0.07042942 0.03811613 0.00000000
+ 0.00000000 0.02062830 0.03811613 0.04980112 0.05390434 0.04980112 0.03811613 0.02062830 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 7 beendet
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd-west3: error: *** STEP 185062.8 ON west3 CANCELLED AT 2025-11-07T12:26:22 ***
+slurmstepd-west3: error: *** JOB 185062 ON west3 CANCELLED AT 2025-11-07T12:26:22 ***
+srun: forcing job termination
+srun: error: west3: task 0: Terminated
+make: Nothing to be done for 'all'.
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.079937 s 
+Speicherbedarf:     0.009537 MiB
+Berechnungsmethode: Jacobi
+Interlines:         2
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   0.00000000000e+00
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14665590 0.27098477 0.35405866 0.38323033 0.35405866 0.27098477 0.14665590 0.00000000
+ 0.00000000 0.27098477 0.50071456 0.65421510 0.70811732 0.65421510 0.50071456 0.27098477 0.00000000
+ 0.00000000 0.35405866 0.65421510 0.85477322 0.92519987 0.85477322 0.65421510 0.35405866 0.00000000
+ 0.00000000 0.38323033 0.70811732 0.92519987 1.00142912 0.92519987 0.70811732 0.38323033 0.00000000
+ 0.00000000 0.35405866 0.65421510 0.85477322 0.92519987 0.85477322 0.65421510 0.35405866 0.00000000
+ 0.00000000 0.27098477 0.50071456 0.65421510 0.70811732 0.65421510 0.50071456 0.27098477 0.00000000
+ 0.00000000 0.14665590 0.27098477 0.35405866 0.38323033 0.35405866 0.27098477 0.14665590 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 1 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.151418 s 
+Speicherbedarf:     0.025650 MiB
+Berechnungsmethode: Jacobi
+Interlines:         4
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   0.00000000000e+00
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14652191 0.27073719 0.35373519 0.38288021 0.35373519 0.27073719 0.14652191 0.00000000
+ 0.00000000 0.27073719 0.50025710 0.65361740 0.70747038 0.65361740 0.50025710 0.27073719 0.00000000
+ 0.00000000 0.35373519 0.65361740 0.85399229 0.92435459 0.85399229 0.65361740 0.35373519 0.00000000
+ 0.00000000 0.38288021 0.70747038 0.92435459 1.00051420 0.92435459 0.70747038 0.38288021 0.00000000
+ 0.00000000 0.35373519 0.65361740 0.85399229 0.92435459 0.85399229 0.65361740 0.35373519 0.00000000
+ 0.00000000 0.27073719 0.50025710 0.65361740 0.70747038 0.65361740 0.50025710 0.27073719 0.00000000
+ 0.00000000 0.14652191 0.27073719 0.35373519 0.38288021 0.35373519 0.27073719 0.14652191 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 2 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.367512 s 
+Speicherbedarf:     0.081314 MiB
+Berechnungsmethode: Jacobi
+Interlines:         8
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   1.59746882389e-10
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14646982 0.27064094 0.35360943 0.38274409 0.35360943 0.27064094 0.14646982 0.00000000
+ 0.00000000 0.27064094 0.50007925 0.65338503 0.70721886 0.65338503 0.50007925 0.27064094 0.00000000
+ 0.00000000 0.35360943 0.65338503 0.85368868 0.92402597 0.85368868 0.65338503 0.35360943 0.00000000
+ 0.00000000 0.38274409 0.70721886 0.92402597 1.00015850 0.92402597 0.70721886 0.38274409 0.00000000
+ 0.00000000 0.35360943 0.65338503 0.85368868 0.92402597 0.85368868 0.65338503 0.35360943 0.00000000
+ 0.00000000 0.27064094 0.50007925 0.65338503 0.70721886 0.65338503 0.50007925 0.27064094 0.00000000
+ 0.00000000 0.14646982 0.27064094 0.35360943 0.38274409 0.35360943 0.27064094 0.14646982 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 3 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    0.961885 s 
+Speicherbedarf:     0.286392 MiB
+Berechnungsmethode: Jacobi
+Interlines:         16
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   3.37055936050e-06
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.14460346 0.26719235 0.34910363 0.37786705 0.34910363 0.26719235 0.14460346 0.00000000
+ 0.00000000 0.26719235 0.49370709 0.64505940 0.69820726 0.64505940 0.49370709 0.26719235 0.00000000
+ 0.00000000 0.34910363 0.64505940 0.84281072 0.91225175 0.84281072 0.64505940 0.34910363 0.00000000
+ 0.00000000 0.37786705 0.69820726 0.91225175 0.98741417 0.91225175 0.69820726 0.37786705 0.00000000
+ 0.00000000 0.34910363 0.64505940 0.84281072 0.91225175 0.84281072 0.64505940 0.34910363 0.00000000
+ 0.00000000 0.26719235 0.49370709 0.64505940 0.69820726 0.64505940 0.49370709 0.26719235 0.00000000
+ 0.00000000 0.14460346 0.26719235 0.34910363 0.37786705 0.34910363 0.26719235 0.14460346 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 4 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    3.940028 s 
+Speicherbedarf:     1.071548 MiB
+Berechnungsmethode: Jacobi
+Interlines:         32
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   2.21958353466e-05
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.10054299 0.18577922 0.24273225 0.26273149 0.24273225 0.18577922 0.10054299 0.00000000
+ 0.00000000 0.18577922 0.34327524 0.44851071 0.48546449 0.44851071 0.34327524 0.18577922 0.00000000
+ 0.00000000 0.24273225 0.44851071 0.58600748 0.63428993 0.58600748 0.44851071 0.24273225 0.00000000
+ 0.00000000 0.26273149 0.48546449 0.63428993 0.68655047 0.63428993 0.48546449 0.26273149 0.00000000
+ 0.00000000 0.24273225 0.44851071 0.58600748 0.63428993 0.58600748 0.44851071 0.24273225 0.00000000
+ 0.00000000 0.18577922 0.34327524 0.44851071 0.48546449 0.44851071 0.34327524 0.18577922 0.00000000
+ 0.00000000 0.10054299 0.18577922 0.24273225 0.26273149 0.24273225 0.18577922 0.10054299 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 5 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    9.768309 s 
+Speicherbedarf:     4.141861 MiB
+Berechnungsmethode: Jacobi
+Interlines:         64
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   1.35335775555e-05
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.03784894 0.06993573 0.09137543 0.09890406 0.09137543 0.06993573 0.03784894 0.00000000
+ 0.00000000 0.06993573 0.12922438 0.16883979 0.18275087 0.16883979 0.12922438 0.06993573 0.00000000
+ 0.00000000 0.09137543 0.16883979 0.22059981 0.23877552 0.22059981 0.16883979 0.09137543 0.00000000
+ 0.00000000 0.09890406 0.18275087 0.23877552 0.25844876 0.23877552 0.18275087 0.09890406 0.00000000
+ 0.00000000 0.09137543 0.16883979 0.22059981 0.23877552 0.22059981 0.16883979 0.09137543 0.00000000
+ 0.00000000 0.06993573 0.12922438 0.16883979 0.18275087 0.16883979 0.12922438 0.06993573 0.00000000
+ 0.00000000 0.03784894 0.06993573 0.09137543 0.09890406 0.09137543 0.06993573 0.03784894 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 6 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    35.943821 s 
+Speicherbedarf:     16.282486 MiB
+Berechnungsmethode: Jacobi
+Interlines:         128
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   4.29479704986e-06
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.01070607 0.01978224 0.02584674 0.02797631 0.02584674 0.01978224 0.01070607 0.00000000
+ 0.00000000 0.01978224 0.03655281 0.04775854 0.05169347 0.04775854 0.03655281 0.01978224 0.00000000
+ 0.00000000 0.02584674 0.04775854 0.06239954 0.06754078 0.06239954 0.04775854 0.02584674 0.00000000
+ 0.00000000 0.02797631 0.05169347 0.06754078 0.07310561 0.06754078 0.05169347 0.02797631 0.00000000
+ 0.00000000 0.02584674 0.04775854 0.06239954 0.06754078 0.06239954 0.04775854 0.02584674 0.00000000
+ 0.00000000 0.01978224 0.03655281 0.04775854 0.05169347 0.04775854 0.03655281 0.01978224 0.00000000
+ 0.00000000 0.01070607 0.01978224 0.02584674 0.02797631 0.02584674 0.01978224 0.01070607 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 7 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    143.500775 s 
+Speicherbedarf:     64.563736 MiB
+Berechnungsmethode: Jacobi
+Interlines:         256
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   1.14529495356e-06
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00277445 0.00512651 0.00669811 0.00724998 0.00669811 0.00512651 0.00277445 0.00000000
+ 0.00000000 0.00512651 0.00947255 0.01237649 0.01339621 0.01237649 0.00947255 0.00512651 0.00000000
+ 0.00000000 0.00669811 0.01237649 0.01617066 0.01750299 0.01617066 0.01237649 0.00669811 0.00000000
+ 0.00000000 0.00724998 0.01339621 0.01750299 0.01894510 0.01750299 0.01339621 0.00724998 0.00000000
+ 0.00000000 0.00669811 0.01237649 0.01617066 0.01750299 0.01617066 0.01237649 0.00669811 0.00000000
+ 0.00000000 0.00512651 0.00947255 0.01237649 0.01339621 0.01237649 0.00947255 0.00512651 0.00000000
+ 0.00000000 0.00277445 0.00512651 0.00669811 0.00724998 0.00669811 0.00512651 0.00277445 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 8 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    571.575178 s 
+Speicherbedarf:     257.126236 MiB
+Berechnungsmethode: Jacobi
+Interlines:         512
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   2.91588503539e-07
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00070131 0.00129586 0.00169312 0.00183262 0.00169312 0.00129586 0.00070131 0.00000000
+ 0.00000000 0.00129586 0.00239444 0.00312848 0.00338624 0.00312848 0.00239444 0.00129586 0.00000000
+ 0.00000000 0.00169312 0.00312848 0.00408756 0.00442434 0.00408756 0.00312848 0.00169312 0.00000000
+ 0.00000000 0.00183262 0.00338624 0.00442434 0.00478887 0.00442434 0.00338624 0.00183262 0.00000000
+ 0.00000000 0.00169312 0.00312848 0.00408756 0.00442434 0.00408756 0.00312848 0.00169312 0.00000000
+ 0.00000000 0.00129586 0.00239444 0.00312848 0.00338624 0.00312848 0.00239444 0.00129586 0.00000000
+ 0.00000000 0.00070131 0.00129586 0.00169312 0.00183262 0.00169312 0.00129586 0.00070131 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 9 beendet
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Berechnungszeit:    2292.725843 s 
+Speicherbedarf:     1026.251236 MiB
+Berechnungsmethode: Jacobi
+Interlines:         1024
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 16384
+Norm des Fehlers:   7.33026820968e-08
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00017599 0.00032518 0.00042487 0.00045988 0.00042487 0.00032518 0.00017599 0.00000000
+ 0.00000000 0.00032518 0.00060086 0.00078506 0.00084974 0.00078506 0.00060086 0.00032518 0.00000000
+ 0.00000000 0.00042487 0.00078506 0.00102573 0.00111024 0.00102573 0.00078506 0.00042487 0.00000000
+ 0.00000000 0.00045988 0.00084974 0.00111024 0.00120171 0.00111024 0.00084974 0.00045988 0.00000000
+ 0.00000000 0.00042487 0.00078506 0.00102573 0.00111024 0.00102573 0.00078506 0.00042487 0.00000000
+ 0.00000000 0.00032518 0.00060086 0.00078506 0.00084974 0.00078506 0.00060086 0.00032518 0.00000000
+ 0.00000000 0.00017599 0.00032518 0.00042487 0.00045988 0.00042487 0.00032518 0.00017599 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+Lauf 10 beendet

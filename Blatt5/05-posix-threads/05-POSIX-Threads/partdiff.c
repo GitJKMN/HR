@@ -29,8 +29,6 @@
 
 #include "partdiff.h"
 
-#include <omp.h>
-
 struct calculation_arguments {
   uint64_t N;            /* number of spaces between lines (lines=N+1)     */
   uint64_t num_matrices; /* number of matrices                             */
@@ -144,14 +142,11 @@ static void initMatrices(struct calculation_arguments *arguments,
   if (options->inf_func == FUNC_F0) {
     for (g = 0; g < arguments->num_matrices; g++) {
       for (i = 0; i <= N; i++) {
-        Matrix[g][i][0] = 1.0 - (h * i);
-        Matrix[g][i][N] = h * i;
-        Matrix[g][0][i] = 1.0 - (h * i);
-        Matrix[g][N][i] = h * i;
+        Matrix[g][i][0] = 3 + (1 - (h * i)); // Linke Kante
+        Matrix[g][N][i] = 3 - (h * i);       // Untere Kante
+        Matrix[g][N - i][N] = 2 + h * i;     // Rechte Kante
+        Matrix[g][0][N - i] = 3 + h * i;     // Obere Kante
       }
-
-      Matrix[g][N][0] = 0.0;
-      Matrix[g][0][N] = 0.0;
     }
   }
 }
@@ -190,7 +185,6 @@ static void calculate(struct calculation_arguments const *arguments,
     fpisin = 0.25 * TWO_PI_SQUARE * h * h;
   }
 
-  omp_set_num_threads(options->number);
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
@@ -198,7 +192,6 @@ static void calculate(struct calculation_arguments const *arguments,
     maxResiduum = 0;
 
     /* over all rows */
-    #pragma omp parallel for if (options->method == METH_JACOBI) default(none) private(i, j, residuum, star) shared(Matrix_In, Matrix_Out, N, fpisin, pih, options, term_iteration) reduction(max:maxResiduum)
     for (i = 1; i < N; i++) {
       double fpisin_i = 0.0;
 
@@ -209,7 +202,7 @@ static void calculate(struct calculation_arguments const *arguments,
       /* over all columns */
       for (j = 1; j < N; j++) {
         star = 0.25 * (Matrix_In[i - 1][j] + Matrix_In[i][j - 1] +
-                      Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
+                       Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
 
         if (options->inf_func == FUNC_FPISIN) {
           star += fpisin_i * sin(pih * (double)j);
@@ -234,8 +227,6 @@ static void calculate(struct calculation_arguments const *arguments,
     m2 = i;
 
     /* check for stopping calculation depending on termination method */
-
-    
     if (options->termination == TERM_PREC) {
       if (maxResiduum < options->term_precision) {
         term_iteration = 0;
