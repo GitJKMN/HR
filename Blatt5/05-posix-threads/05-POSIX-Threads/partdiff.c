@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <pthread.h>
 
 #include "partdiff.h"
 
@@ -42,6 +43,16 @@ struct calculation_results {
   uint64_t stat_iteration; /* number of current iteration                    */
   double stat_precision;   /* actual precision of all slaves in iteration    */
 };
+
+typedef struct {
+        struct calculation_arguments const *arguments;
+        struct options const *options;
+        double **Matrix_In;
+        double **Matrix_Out;
+        int startRow;
+        int endRow;
+        double localMax;
+    } ThreadDaten;
 
 /* ************************************************************************ */
 /* Global variables                                                         */
@@ -151,6 +162,75 @@ static void initMatrices(struct calculation_arguments *arguments,
   }
 }
 
+int startRow(struct calculation_arguments *arguments,
+                         struct options const *options, int thread_id) {
+  return 1 + thread_id * (arguments->N-2)/options->number + fmin(thread_id, (arguments->N - 2) % options->number);
+}
+
+int numRowsForThread(struct calculation_arguments *arguments,
+                         struct options const *options, int thread_id) {
+  int residue = 0;
+  if((uint64_t)thread_id < ((arguments->N - 2) % options->number)) {
+      residue = 1;
+    }
+  if (options->number <= arguments->N - 2) {
+    return (arguments->N-2)/options->number + residue;
+  }
+  else {
+    return residue;
+  }
+}
+
+int endRow(struct calculation_arguments *arguments,
+                         struct options const *options, int thread_id) {
+  return startRow(arguments, options, thread_id) + numRowsForThread(arguments, options, thread_id) - 1;
+}
+
+void* calculateJacobi(void *arg) {
+    ThreadDaten *t = (ThreadDaten*)arg;
+
+    int N = t->arguments->N;
+    double h = t->arguments->h;
+
+    double pih = 0.0;
+    double fpisin = 0.0;
+
+    if (t->options->inf_func == FUNC_FPISIN) {
+        pih = PI * h;
+        fpisin = 0.25 * TWO_PI_SQUARE * h * h;
+    }
+
+    double localMax = 0.0;
+
+    for (int i = t->startRow; i <= t->endRow; i++) {
+        double fpisin_i = 0.0;
+
+        if (t->options->inf_func == FUNC_FPISIN)
+            fpisin_i = fpisin * sin(pih * (double)i);
+
+        for (int j = 1; j < N; j++) {
+            double star =
+                0.25 * (t->Matrix_In[i-1][j] +
+                        t->Matrix_In[i][j-1] +
+                        t->Matrix_In[i][j+1] +
+                        t->Matrix_In[i+1][j]);
+
+            if (t->options->inf_func == FUNC_FPISIN)
+                star += fpisin_i * sin(pih * (double)j);
+
+            double resid = fabs(t->Matrix_In[i][j] - star);
+            if (t->options->termination == TERM_PREC && resid > localMax)
+                localMax = resid;
+
+            t->Matrix_Out[i][j] = star;
+        }
+    }
+
+    t->localMax = localMax;
+    return NULL;
+}
+
+
 /* ************************************************************************ */
 /* calculate: solves the equation                                           */
 /* ************************************************************************ */
@@ -170,6 +250,7 @@ static void calculate(struct calculation_arguments const *arguments,
   double fpisin = 0.0;
 
   int term_iteration = options->term_iteration;
+
 
   /* initialize m1 and m2 depending on algorithm */
   if (options->method == METH_JACOBI) {
@@ -191,32 +272,61 @@ static void calculate(struct calculation_arguments const *arguments,
 
     maxResiduum = 0;
 
-    /* over all rows */
-    for (i = 1; i < N; i++) {
-      double fpisin_i = 0.0;
+    if (options->method != METH_JACOBI) {
 
-      if (options->inf_func == FUNC_FPISIN) {
-        fpisin_i = fpisin * sin(pih * (double)i);
-      }
-
-      /* over all columns */
-      for (j = 1; j < N; j++) {
-        star = 0.25 * (Matrix_In[i - 1][j] + Matrix_In[i][j - 1] +
-                       Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
+      /* over all rows */
+      for (i = 1; i < N; i++) {
+        double fpisin_i = 0.0;
 
         if (options->inf_func == FUNC_FPISIN) {
-          star += fpisin_i * sin(pih * (double)j);
+          fpisin_i = fpisin * sin(pih * (double)i);
         }
 
-        if (options->termination == TERM_PREC || term_iteration == 1) {
-          residuum = Matrix_In[i][j] - star;
-          residuum = (residuum < 0) ? -residuum : residuum;
-          maxResiduum = (residuum < maxResiduum) ? maxResiduum : residuum;
-        }
+        /* over all columns */
+        for (j = 1; j < N; j++) {
+          star = 0.25 * (Matrix_In[i - 1][j] + Matrix_In[i][j - 1] +
+                        Matrix_In[i][j + 1] + Matrix_In[i + 1][j]);
 
-        Matrix_Out[i][j] = star;
+          if (options->inf_func == FUNC_FPISIN) {
+            star += fpisin_i * sin(pih * (double)j);
+          }
+
+          if (options->termination == TERM_PREC || term_iteration == 1) {
+            residuum = Matrix_In[i][j] - star;
+            residuum = (residuum < 0) ? -residuum : residuum;
+            maxResiduum = (residuum < maxResiduum) ? maxResiduum : residuum;
+          }
+
+          Matrix_Out[i][j] = star;
+        }
+      }
+    } else {    /* Jacobi parallel */
+
+      pthread_t threads[options->number];
+      ThreadDaten tdata[options->number];
+
+      for (uint64_t t = 0; t < options->number; t++) {
+
+          tdata[t].arguments = arguments;
+          tdata[t].options = options;
+          tdata[t].Matrix_In = Matrix_In;
+          tdata[t].Matrix_Out = Matrix_Out;
+
+          tdata[t].startRow = startRow((struct calculation_arguments*)arguments, options, t);
+          tdata[t].endRow   = endRow((struct calculation_arguments*)arguments, options, t);
+
+          pthread_create(&threads[t], NULL, calculateJacobi, &tdata[t]);
+      }
+
+      /* Ergebnisse der Threads sammeln */
+      for (uint64_t t = 0; t < options->number; t++) {
+          pthread_join(threads[t], NULL);
+
+          if (tdata[t].localMax > maxResiduum)
+              maxResiduum = tdata[t].localMax;
       }
     }
+
 
     results->stat_iteration++;
     results->stat_precision = maxResiduum;
