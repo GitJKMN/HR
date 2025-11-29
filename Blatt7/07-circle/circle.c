@@ -38,11 +38,11 @@ int circle(int *buf,int size, int rank, int N) {
     MPI_Recv(&first, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   } else if (rank == 0) {
     first = buf[0];
-    MPI_Send(&first, 1, MPI_INT, size - 1, 0, MPI_COMM_WORLD);
+    MPI_Ssend(&first, 1, MPI_INT, size - 1, 0, MPI_COMM_WORLD);
   }
   while (circle_not_over) {
     for (int i = 0; i < N; i++) {
-      MPI_Isend(&buf[i], 1, MPI_INT, next, 0, MPI_COMM_WORLD, &requests[i]);
+      MPI_Issend(&buf[i], 1, MPI_INT, next, 0, MPI_COMM_WORLD, &requests[i]);
     }
     for (int i = 0; i < N; i++) {
       MPI_Irecv(&buf[i], 1, MPI_INT, prev, 0, MPI_COMM_WORLD, &requests[N + i]);
@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
 
     printArray(buf, N, size);
   } else {
-      MPI_Send(buf, N, MPI_INT, 0, 0, MPI_COMM_WORLD);
+      MPI_Ssend(buf, N, MPI_INT, 0, 0, MPI_COMM_WORLD);
   }
   MPI_Barrier(MPI_COMM_WORLD);
   if (size > 1) {
@@ -137,9 +137,9 @@ int main(int argc, char **argv) {
     printf("\nTermination Value: %d\n", termination_value);
 
   } else {
-      MPI_Send(buf, N, MPI_INT, 0, 0, MPI_COMM_WORLD);
+      MPI_Ssend(buf, N, MPI_INT, 0, 0, MPI_COMM_WORLD);
       if (rank == size - 1) {
-        MPI_Send(&buf[0], 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+        MPI_Ssend(&buf[0], 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
       }
   }
   MPI_Barrier(MPI_COMM_WORLD);
