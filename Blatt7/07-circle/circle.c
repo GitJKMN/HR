@@ -31,6 +31,7 @@ int circle(int *buf,int size, int rank, int N) {
   int prev = (rank - 1 + size) % size;
   int next = (rank + 1) % size;
   MPI_Request requests[2*N];
+  MPI_Status statuses[2*N];
   int first;
   int circle_not_over = 1;
   int iterations = 0;
@@ -47,7 +48,7 @@ int circle(int *buf,int size, int rank, int N) {
     for (int i = 0; i < N; i++) {
       MPI_Irecv(&buf[i], 1, MPI_INT, prev, 0, MPI_COMM_WORLD, &requests[N + i]);
     }
-    MPI_Waitall(2 * N, requests, MPI_STATUSES_IGNORE);
+    MPI_Waitall(2 * N, requests, statuses);
     MPI_Barrier(MPI_COMM_WORLD);
     if (is_last) {
       if (first == buf[0]) {
