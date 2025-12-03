@@ -27,6 +27,9 @@ int *init(int N, int is_full_arr, int rank, int size) {
 
 int circle(int *buf,int size, int rank, int N) {
   // TODO
+  if (size == 1) {
+    return 0;
+  }
   int is_last = rank == size - 1;
   int prev = (rank - 1 + size) % size;
   int next = (rank + 1) % size;
@@ -65,6 +68,9 @@ int circle(int *buf,int size, int rank, int N) {
 void printArray(int *buf, int N, int size) {
 
         for (int i = 0; i < N; i++) {
+            if (buf[i] == -1) {
+                break;
+            }
             printf("rank %d: %d\n", 0, buf[i]);
         }
         if (size == 1) {
@@ -74,6 +80,9 @@ void printArray(int *buf, int N, int size) {
         for (int src = 1; src < size; src++) {
             MPI_Recv(recvbuf, N, MPI_INT, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             for (int i = 0; i < N; i++) {
+                if (recvbuf[i] == -1) {
+                    break;
+                }
                 printf("rank %d: %d\n", src, recvbuf[i]);
             }
         }
@@ -90,6 +99,7 @@ int main(int argc, char **argv) {
 
   if (argc < 2) {
     printf("Arguments error!\nPlease specify a buffer size.\n");
+    MPI_Finalize();
     return EXIT_FAILURE;
   }
 
@@ -134,13 +144,19 @@ int main(int argc, char **argv) {
     printArray(buf, N, size);
     printf("\nNumber of iterations: %d\n", ret);
     int termination_value;
-    MPI_Recv(&termination_value, 1, MPI_INT, size - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    if (size == 1) {
+      termination_value = 0;
+    } else {
+      MPI_Recv(&termination_value, 1, MPI_INT, size - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    }
     printf("\nTermination Value: %d\n", termination_value);
 
   } else {
       MPI_Ssend(buf, N, MPI_INT, 0, 0, MPI_COMM_WORLD);
       if (rank == size - 1) {
-        MPI_Ssend(&buf[0], 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+        if (size != 1) {
+          MPI_Ssend(&buf[0], 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+        }
       }
   }
   MPI_Barrier(MPI_COMM_WORLD);
