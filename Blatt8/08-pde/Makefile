@@ -7,7 +7,7 @@ LFLAGS = $(CFLAGS)
 LIBS   = -lm
 
 TGTS = partdiff.x
-OBJS = partdiff.o askparams.o
+OBJS = partdiff.o askparams.o displaymatrix-mpi.o
 
 # Targets ...
 all: $(TGTS)
@@ -16,6 +16,8 @@ partdiff.x: $(OBJS) Makefile
 	$(CC) $(LFLAGS) -o $@ $(OBJS) $(LIBS)
 
 partdiff.o: partdiff.c Makefile
+
+displaymatrix-mpi.o: displaymatrix-mpi.c Makefile
 
 askparams.o: askparams.c Makefile
 
