@@ -23,7 +23,7 @@ void displayMatrixMPI(struct calculation_arguments *arguments,
   /* first line belongs to rank 0 */
   if (rank == 0)
     from--;
-
+                              
   /* last line belongs to rank size - 1 */
   if (rank + 1 == size)
     to++;

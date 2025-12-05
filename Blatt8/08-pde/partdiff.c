@@ -452,21 +452,28 @@ int main(int argc, char **argv) {
   struct calculation_results results;
   int is_master = 1;
   MPI_Comm newComm = MPI_COMM_NULL;
+  int initial_rank;
+  int initial_size;
 
-  askParams(&options, argc, argv);
+  //Intialize MPI
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &initial_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &initial_size);
+
+  if (initial_rank == 0) {
+    askParams(&options, argc, argv);
+  }
+
+  MPI_Bcast(&options, sizeof(struct options), MPI_BYTE, 0, MPI_COMM_WORLD);
 
   if (options.method == METH_JACOBI) {
-    //Intialize MPI
-    MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_WORLD, &arguments.rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &arguments.size);
 
     //Finalize processes that are not needed
     int total_rows = (options.interlines * 8) + 9;
-    int color = arguments.rank < total_rows - 2 ? 0 : MPI_UNDEFINED ;
+    int color = initial_rank < (total_rows - 2) ? 0 : MPI_UNDEFINED ;
 
-    if (arguments.size > total_rows - 2) {
-      MPI_Comm_split(MPI_COMM_WORLD, color, arguments.rank, &newComm);
+    if (arguments.size > (total_rows - 2)) {
+      MPI_Comm_split(MPI_COMM_WORLD, color, initial_rank, &newComm);
       if (color == MPI_UNDEFINED) {
         MPI_Finalize();
         return 0;
@@ -477,6 +484,7 @@ int main(int argc, char **argv) {
 
     MPI_Comm_rank(newComm, &arguments.rank);
     MPI_Comm_size(newComm, &arguments.size); 
+    MPI_Barrier(newComm);
     arguments.comm = newComm;
     is_master = arguments.rank == 0;
   } else {
@@ -520,8 +528,8 @@ int main(int argc, char **argv) {
   freeMatrices(&arguments);
   if (options.method == METH_JACOBI) {
     MPI_Comm_free(&(arguments.comm));
-    MPI_Finalize();
   }
+  MPI_Finalize();
 
   return 0;
 }
