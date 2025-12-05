@@ -301,7 +301,7 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
       }
     }
 
-    if (options->method == METH_JACOBI && arguments->size > 1) {
+    if (arguments->size > 1) {
       /* communicate border rows with neighboring processes */
       MPI_Request requests[4];
       int nreqs = 0;
