@@ -329,7 +329,6 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
       if (arguments->rank < arguments->size - 1) {
         MPI_Isend(Matrix_Out[N_rows - 1], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_BottomRow,
                   arguments->comm, &requests[nreqs++]);
-
       }
 
       /* wait for communication to finish */
@@ -472,7 +471,7 @@ int main(int argc, char **argv) {
     int total_rows = (options.interlines * 8) + 9;
     int color = initial_rank < (total_rows - 2) ? 0 : MPI_UNDEFINED ;
 
-    if (arguments.size > (total_rows - 2)) {
+    if (initial_size > (total_rows - 2)) {
       MPI_Comm_split(MPI_COMM_WORLD, color, initial_rank, &newComm);
       if (color == MPI_UNDEFINED) {
         MPI_Finalize();
@@ -484,7 +483,7 @@ int main(int argc, char **argv) {
 
     MPI_Comm_rank(newComm, &arguments.rank);
     MPI_Comm_size(newComm, &arguments.size); 
-    MPI_Barrier(newComm);
+    printf("Process %d of %d in new communicator\n", arguments.rank, arguments.size);
     arguments.comm = newComm;
     is_master = arguments.rank == 0;
   } else {
@@ -507,6 +506,7 @@ int main(int argc, char **argv) {
     printf("Zeilen: %d, Spalten: %d, Prozesse: %d\n", arguments.N_rows, (int)arguments.N_columns, arguments.size);
     calculateJacobi(&arguments, &results, &options);
   }
+  MPI_Barrier(newComm);
   if (is_master) {
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
