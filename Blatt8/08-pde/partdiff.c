@@ -29,6 +29,7 @@
 
 #include "mpi.h"
 #include "partdiff.h"
+#include <omp.h>
 
 /* ************************************************************************ */
 /* Global variables                                                         */
@@ -268,16 +269,20 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
     fpisin = 0.25 * TWO_PI_SQUARE * h * h;
   }
 
+  omp_set_num_threads(options->number);
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
 
     maxResiduum = 0;
 
+
     int from = arguments->rank * (arguments->N_rows - 1) + 1;
     if ((uint64_t)arguments->rank >= (arguments->N_columns - 1) % arguments->size) {
       from += (arguments->N_columns - 1) % arguments->size;
     }
+
+    #pragma omp parallel for if (options->method == METH_JACOBI) default(none) private(i, j, residuum, star) shared(from, Matrix_In, Matrix_Out, N_rows, N_columns, fpisin, pih, options, term_iteration) reduction(max:maxResiduum)
 
     /* over all rows */
     for (i = 1; i < N_rows; i++) {
@@ -363,10 +368,14 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
       }
     } else if (options->termination == TERM_ITER) {
       term_iteration--;
-    }
+    } 
     MPI_Barrier(arguments->comm);
   }
-
+  if (options->termination == TERM_ITER) {
+    double global_maxResiduum;
+    MPI_Allreduce(&maxResiduum, &global_maxResiduum, 1, MPI_DOUBLE, MPI_MAX, arguments->comm);
+    results->stat_precision = global_maxResiduum;
+  }
   results->m = m2;
 }
 
