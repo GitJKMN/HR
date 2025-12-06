@@ -1,4 +1,16 @@
-static void displayMatrixMPI(struct calculation_arguments *arguments,
+#include <inttypes.h>
+#include <malloc.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
+
+#include "mpi.h"
+#include "partdiff.h"
+
+
+void displayMatrixMPI(struct calculation_arguments *arguments,
                              struct calculation_results *results,
                              struct options *options, int rank, int size,
                              int from, int to) {
@@ -11,7 +23,7 @@ static void displayMatrixMPI(struct calculation_arguments *arguments,
   /* first line belongs to rank 0 */
   if (rank == 0)
     from--;
-
+                              
   /* last line belongs to rank size - 1 */
   if (rank + 1 == size)
     to++;
@@ -28,15 +40,15 @@ static void displayMatrixMPI(struct calculation_arguments *arguments,
         /* use the tag to receive the lines in the correct order
          * the line is stored in Matrix[0], because we do not need it anymore */
         MPI_Recv(Matrix[0], elements, MPI_DOUBLE, MPI_ANY_SOURCE, 42 + y,
-                 MPI_COMM_WORLD, &status);
+                 arguments->comm, &status);      
       }
     } else {
       if (line >= from && line <= to) {
         /* if the line belongs to this process, send it to rank 0
          * (line - from + 1) is used to calculate the correct local address */
         MPI_Send(Matrix[line - from + 1], elements, MPI_DOUBLE, 0, 42 + y,
-                 MPI_COMM_WORLD);
-      }
+                 arguments->comm);
+                      }
     }
 
     if (rank == 0) {

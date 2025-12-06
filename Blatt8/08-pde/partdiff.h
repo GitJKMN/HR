@@ -16,6 +16,7 @@
 /* *********************************** */
 #include <math.h>
 #include <stdint.h>
+#include "mpi.h"
 
 /* ************* */
 /* Some defines. */
@@ -44,6 +45,26 @@ struct options {
   double term_precision;   /* terminate if precision reached                 */
 };
 
+struct calculation_arguments {
+  uint64_t N_columns;    /* number of spaces between columns (columns=N_columns+1)                 */
+  uint16_t N_rows;       /* number of spaces between rows per proc (rows=N_rows+1)                 */
+  uint64_t num_matrices; /* number of matrices                                                     */
+  double h;              /* length of a space between two lines                                    */
+  double ***Matrix;      /* index matrix used for addressing M                                     */
+  double *M;             /* two matrices with real values                                          */
+  int rank;         /* rank of the process                                                    */
+  int size;         /* number of processes                                                    */
+  MPI_Comm comm;      /* communicator for processes involved in computation                     */
+};
+
+struct calculation_results {
+  uint64_t m;
+  uint64_t stat_iteration; /* number of current iteration                    */
+  double stat_precision;   /* actual precision of all slaves in iteration    */
+};
+
+
+
 /* *************************** */
 /* Some function declarations. */
 /* *************************** */
@@ -52,3 +73,7 @@ struct options {
 /* - displaymatrix.c           */
 /* *************************** */
 void askParams(struct options *, int, char **);
+
+void displayMatrixMPI(struct calculation_arguments *,
+                   struct calculation_results *,
+                   struct options *, int, int, int, int);
