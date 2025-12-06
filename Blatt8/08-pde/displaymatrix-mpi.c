@@ -40,7 +40,7 @@ void displayMatrixMPI(struct calculation_arguments *arguments,
         /* use the tag to receive the lines in the correct order
          * the line is stored in Matrix[0], because we do not need it anymore */
         MPI_Recv(Matrix[0], elements, MPI_DOUBLE, MPI_ANY_SOURCE, 42 + y,
-                 arguments->comm, &status);
+                 arguments->comm, &status);      
       }
     } else {
       if (line >= from && line <= to) {
@@ -48,7 +48,7 @@ void displayMatrixMPI(struct calculation_arguments *arguments,
          * (line - from + 1) is used to calculate the correct local address */
         MPI_Send(Matrix[line - from + 1], elements, MPI_DOUBLE, 0, 42 + y,
                  arguments->comm);
-      }
+                      }
     }
 
     if (rank == 0) {

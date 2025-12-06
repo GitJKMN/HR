@@ -274,12 +274,18 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
 
     maxResiduum = 0;
 
+    int from = arguments->rank * (arguments->N_rows - 1) + 1;
+    if ((uint64_t)arguments->rank >= (arguments->N_columns - 1) % arguments->size) {
+      from += (arguments->N_columns - 1) % arguments->size;
+    }
+
     /* over all rows */
     for (i = 1; i < N_rows; i++) {
       double fpisin_i = 0.0;
 
       if (options->inf_func == FUNC_FPISIN) {
-        fpisin_i = fpisin * sin(pih * (double)i);
+
+        fpisin_i = fpisin * sin(pih * (double)(from - 1 + i));
       }
 
       /* over all columns */
@@ -312,22 +318,22 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
 
       /* receive from previous and next */
       if (arguments->rank > 0) {
-        MPI_Irecv(Matrix_Out[0], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_BottomRow,
+        MPI_Irecv(Matrix_Out[0], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_BottomRow + term_iteration,
                   arguments->comm, &requests[nreqs++]);
       }
       if (arguments->rank < arguments->size - 1) {
-        MPI_Irecv(Matrix_Out[N_rows], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_TopRow,
+        MPI_Irecv(Matrix_Out[N_rows], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_TopRow + term_iteration,
                   arguments->comm, &requests[nreqs++]);
       }
 
 
       /* send to previous and next */
       if (arguments->rank > 0) {
-        MPI_Isend(Matrix_Out[1], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_TopRow,
+        MPI_Issend(Matrix_Out[1], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_TopRow + term_iteration,
                   arguments->comm, &requests[nreqs++]);
       }
       if (arguments->rank < arguments->size - 1) {
-        MPI_Isend(Matrix_Out[N_rows - 1], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_BottomRow,
+        MPI_Issend(Matrix_Out[N_rows - 1], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_BottomRow + term_iteration,
                   arguments->comm, &requests[nreqs++]);
       }
 
@@ -337,6 +343,8 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
 
     results->stat_iteration++;
     results->stat_precision = maxResiduum;
+
+    MPI_Barrier(arguments->comm);
 
     /* exchange m1 and m2 */
     i = m1;
@@ -356,6 +364,7 @@ static void calculateJacobi(struct calculation_arguments const *arguments,
     } else if (options->termination == TERM_ITER) {
       term_iteration--;
     }
+    MPI_Barrier(arguments->comm);
   }
 
   results->m = m2;
@@ -483,7 +492,6 @@ int main(int argc, char **argv) {
 
     MPI_Comm_rank(newComm, &arguments.rank);
     MPI_Comm_size(newComm, &arguments.size); 
-    printf("Process %d of %d in new communicator\n", arguments.rank, arguments.size);
     arguments.comm = newComm;
     is_master = arguments.rank == 0;
   } else {
@@ -503,10 +511,9 @@ int main(int argc, char **argv) {
   if (options.method == METH_GAUSS_SEIDEL) {
     calculateGS(&arguments, &results, &options);
   } else {
-    printf("Zeilen: %d, Spalten: %d, Prozesse: %d\n", arguments.N_rows, (int)arguments.N_columns, arguments.size);
     calculateJacobi(&arguments, &results, &options);
   }
-  MPI_Barrier(newComm);
+  MPI_Barrier(arguments.comm);
   if (is_master) {
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
@@ -516,9 +523,7 @@ int main(int argc, char **argv) {
     displayMatrix(&arguments, &results, &options);
   } else {
     int from = arguments.rank * (arguments.N_rows - 1) + 1;
-    if ((uint64_t)arguments.rank < (arguments.N_columns - 1) % arguments.size) {
-      from += arguments.rank;
-    } else {
+    if ((uint64_t)arguments.rank >= (arguments.N_columns - 1) % arguments.size) {
       from += (arguments.N_columns - 1) % arguments.size;
     }
     displayMatrixMPI(&arguments, &results, &options, arguments.rank, arguments.size,
