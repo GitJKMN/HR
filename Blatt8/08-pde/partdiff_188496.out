@@ -1,0 +1,120 @@
+=== RUN 1: 1 Prozess (sequenziell) ===
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Process 0 of 1 in new communicator
+Zeilen: 4104, Spalten: 4104, Prozesse: 1
+Berechnungszeit:    329.613470 s 
+Speicherbedarf:     257.126236 MiB
+Berechnungsmethode: Jacobi
+Interlines:         512
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 800
+Norm des Fehlers:   2.92922935057e-07
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00003432 0.00006342 0.00008286 0.00008969 0.00008286 0.00006342 0.00003432 0.00000000
+ 0.00000000 0.00006342 0.00011718 0.00015311 0.00016572 0.00015311 0.00011718 0.00006342 0.00000000
+ 0.00000000 0.00008286 0.00015311 0.00020004 0.00021653 0.00020004 0.00015311 0.00008286 0.00000000
+ 0.00000000 0.00008969 0.00016572 0.00021653 0.00023437 0.00021653 0.00016572 0.00008969 0.00000000
+ 0.00000000 0.00008286 0.00015311 0.00020004 0.00021653 0.00020004 0.00015311 0.00008286 0.00000000
+ 0.00000000 0.00006342 0.00011718 0.00015311 0.00016572 0.00015311 0.00011718 0.00006342 0.00000000
+ 0.00000000 0.00003432 0.00006342 0.00008286 0.00008969 0.00008286 0.00006342 0.00003432 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+=== RUN 2: 5 Prozesse (parallel) ===
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Process 0 of 5 in new communicator
+Process 1 of 5 in new communicator
+Process 2 of 5 in new communicator
+Process 3 of 5 in new communicator
+Process 4 of 5 in new communicator
+Zeilen: 821, Spalten: 4104, Prozesse: 5
+Zeilen: 821, Spalten: 4104, Prozesse: 5
+Zeilen: 822, Spalten: 4104, Prozesse: 5
+Zeilen: 822, Spalten: 4104, Prozesse: 5
+Zeilen: 822, Spalten: 4104, Prozesse: 5
+Berechnungszeit:    66.372856 s 
+Speicherbedarf:     257.752609 MiB
+Berechnungsmethode: Jacobi
+Interlines:         512
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 800
+Norm des Fehlers:   1.62083005451e-07
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00003432 0.00006342 0.00008286 0.00008969 0.00008286 0.00006342 0.00003432 0.00000000
+ 0.00000000 0.00001395 0.00002577 0.00003368 0.00003645 0.00003368 0.00002577 0.00001395 0.00000000
+ 0.00000000 0.00004679 0.00008646 0.00011296 0.00012227 0.00011296 0.00008646 0.00004679 0.00000000
+ 0.00000000 0.00002756 0.00005092 0.00006653 0.00007201 0.00006653 0.00005092 0.00002756 0.00000000
+ 0.00000000 0.00000700 0.00001293 0.00001689 0.00001828 0.00001689 0.00001293 0.00000700 0.00000000
+ 0.00000000 0.00004068 0.00007517 0.00009821 0.00010630 0.00009821 0.00007517 0.00004068 0.00000000
+ 0.00000000 0.00002095 0.00003871 0.00005058 0.00005475 0.00005058 0.00003871 0.00002095 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+=== RUN 3: 12 Prozesse (parallel) ===
+============================================================
+Program for calculation of partial differential equations.  
+============================================================
+(c) Dr. Thomas Ludwig, TU München.
+    Thomas A. Zochler, TU München.
+    Andreas C. Schmidt, TU München.
+============================================================
+
+Process 0 of 12 in new communicator
+Process 1 of 12 in new communicator
+Process 3 of 12 in new communicator
+Process 4 of 12 in new communicator
+Process 5 of 12 in new communicator
+Process 6 of 12 in new communicator
+Process 7 of 12 in new communicator
+Process 8 of 12 in new communicator
+Process 9 of 12 in new communicator
+Process 10 of 12 in new communicator
+Process 11 of 12 in new communicator
+Process 2 of 12 in new communicator
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 342, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Zeilen: 343, Spalten: 4104, Prozesse: 12
+Berechnungszeit:    28.769476 s 
+Speicherbedarf:     258.566895 MiB
+Berechnungsmethode: Jacobi
+Interlines:         512
+Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
+Terminierung:       Anzahl der Iterationen
+Anzahl Iterationen: 800
+Norm des Fehlers:   6.55126815648e-08
+
+Matrix:
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+ 0.00000000 0.00001164 0.00002151 0.00002810 0.00003041 0.00002810 0.00002151 0.00001164 0.00000000
+ 0.00000000 0.00001363 0.00002519 0.00003291 0.00003562 0.00003291 0.00002519 0.00001363 0.00000000
+ 0.00000000 0.00001143 0.00002113 0.00002760 0.00002988 0.00002760 0.00002113 0.00001143 0.00000000
+ 0.00000000 0.00001557 0.00002877 0.00003758 0.00004068 0.00003758 0.00002877 0.00001557 0.00000000
+ 0.00000000 0.00001123 0.00002075 0.00002711 0.00002935 0.00002711 0.00002075 0.00001123 0.00000000
+ 0.00000000 0.00001710 0.00003159 0.00004127 0.00004467 0.00004127 0.00003159 0.00001710 0.00000000
+ 0.00000000 0.00001103 0.00002037 0.00002662 0.00002881 0.00002662 0.00002037 0.00001103 0.00000000
+ 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
