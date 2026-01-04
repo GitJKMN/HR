@@ -130,6 +130,13 @@ static void initMatrices(struct calculation_arguments *arguments,
   uint64_t const N_rows = arguments->N_rows;
   double const h = arguments->h;
   double ***Matrix = arguments->Matrix;
+  int from = 0;
+  if (options->method == METH_JACOBI) {
+    from = arguments->rank * (arguments->N_rows - 1) + 1;
+    if ((uint64_t)arguments->rank >= (arguments->N_columns - 1) % arguments->size) {
+      from += (arguments->N_columns - 1) % arguments->size;
+    }
+  }
 
   /* initialize matrix/matrices with zeros */
   for (g = 0; g < arguments->num_matrices; g++) {
@@ -139,18 +146,42 @@ static void initMatrices(struct calculation_arguments *arguments,
       }
     }
   }
-
+  printf("Ich lebe noch");
   /* initialize borders, depending on function (function 2: nothing to do) */
   if (options->inf_func == FUNC_F0) {
     for (g = 0; g < arguments->num_matrices; g++) {
       for (i = 0; i <= N_columns; i++) {
-        Matrix[g][i][0] = 3 + (1 - (h * i));                  // Linke Kante
-        Matrix[g][N_rows][i] = 3 - (h * i);                   // Untere Kante
-        Matrix[g][N_columns - i][N_columns] = 2 + h * i;      // Rechte Kante
-        Matrix[g][0][N_rows - i] = 3 + h * i;                 // Obere Kante
+        if (options->method == METH_JACOBI) {
+          // For Jacobi method, only initialize the borders for rank 0 and rank size-1
+          if (i < N_rows && (arguments->rank != 0 || arguments->rank != arguments->size - 1)){
+            Matrix[g][i][0] = 3 + (1 - (h * (i + from)));                    // Linke Kante
+            Matrix[g][N_rows - i][N_columns] = 2 + h * (i + from);           // Rechte Kante
+          }
+          if (arguments->rank == 0) {
+            if (i <= N_rows) {
+              Matrix[g][i][0] = 3 + (1 - (h * i));                    // Linke Kante
+              Matrix[g][N_rows - i][N_columns] = 2 + h * i;           // Rechte Kante
+            }
+            Matrix[g][0][N_columns - i] = 3 + h * i;                       // Obere Kante
+          }
+          if (arguments->rank == arguments->size - 1) {
+            if (i <= N_rows) {
+              Matrix[g][i][0] = 3 + (1 - (h * (i + from)));                    // Linke Kante
+              Matrix[g][N_rows - i][N_columns] = 2 + h * (i + from);           // Rechte Kante
+            }
+            Matrix[g][N_rows][i] = 3 - (h * i);                            // Untere Kante
+          }
+          
+        } else {
+          Matrix[g][i][0] = 3 + (1 - (h * i));              // Linke Kante
+          Matrix[g][N_rows][i] = 3 - (h * i);               // Untere Kante
+          Matrix[g][N_rows - i][N_columns] = 2 + h * i;     // Rechte Kante
+          Matrix[g][0][N_columns - i] = 3 + h * i;          // Obere Kante
+        }
       }
     }
   }
+  printf("Ich lebe immer noch");
 }
 
 /* ************************************************************************ */
@@ -504,9 +535,12 @@ int main(int argc, char **argv) {
     arguments.comm = newComm;
     is_master = arguments.rank == 0;
   } else {
-    arguments.rank = 0;
-    arguments.size = 1;
-    arguments.comm = MPI_COMM_NULL;
+    int color = initial_rank == 0 ? 0 : MPI_UNDEFINED;
+    MPI_Comm_split(MPI_COMM_WORLD, color, initial_rank, &newComm);
+      if (color == MPI_UNDEFINED) {
+        MPI_Finalize();
+        return 0;
+      }
   }
 
   initVariables(&arguments, &results, &options);
@@ -522,7 +556,6 @@ int main(int argc, char **argv) {
   } else {
     calculateJacobi(&arguments, &results, &options);
   }
-  MPI_Barrier(arguments.comm);
   if (is_master) {
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
@@ -536,7 +569,7 @@ int main(int argc, char **argv) {
       from += (arguments.N_columns - 1) % arguments.size;
     }
     displayMatrixMPI(&arguments, &results, &options, arguments.rank, arguments.size,
-                    from, from + arguments.N_rows - 2);
+                  from, from + arguments.N_rows - 2);
   }
 
   freeMatrices(&arguments);
