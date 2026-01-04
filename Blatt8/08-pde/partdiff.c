@@ -143,10 +143,10 @@ static void initMatrices(struct calculation_arguments *arguments,
   /* initialize borders, depending on function (function 2: nothing to do) */
   if (options->inf_func == FUNC_F0) {
     for (g = 0; g < arguments->num_matrices; g++) {
-      for (i = 0; i <= N_columns; i++) {
+      for (i = 0; i <= N_rows; i++) {
         Matrix[g][i][0] = 3 + (1 - (h * i));                  // Linke Kante
         Matrix[g][N_rows][i] = 3 - (h * i);                   // Untere Kante
-        Matrix[g][N_columns - i][N_columns] = 2 + h * i;      // Rechte Kante
+        Matrix[g][N_rows - i][N_columns] = 2 + h * i;      // Rechte Kante
         Matrix[g][0][N_rows - i] = 3 + h * i;                 // Obere Kante
       }
     }
@@ -522,7 +522,6 @@ int main(int argc, char **argv) {
   } else {
     calculateJacobi(&arguments, &results, &options);
   }
-  MPI_Barrier(arguments.comm);
   if (is_master) {
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
