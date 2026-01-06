@@ -146,42 +146,30 @@ static void initMatrices(struct calculation_arguments *arguments,
       }
     }
   }
-  printf("Ich lebe noch");
   /* initialize borders, depending on function (function 2: nothing to do) */
   if (options->inf_func == FUNC_F0) {
     for (g = 0; g < arguments->num_matrices; g++) {
       for (i = 0; i <= N_columns; i++) {
-        if (options->method == METH_JACOBI) {
-          // For Jacobi method, only initialize the borders for rank 0 and rank size-1
-          if (i < N_rows && (arguments->rank != 0 || arguments->rank != arguments->size - 1)){
-            Matrix[g][i][0] = 3 + (1 - (h * (i + from)));                    // Linke Kante
-            Matrix[g][N_rows - i][N_columns] = 2 + h * (i + from);           // Rechte Kante
-          }
-          if (arguments->rank == 0) {
-            if (i <= N_rows) {
-              Matrix[g][i][0] = 3 + (1 - (h * i));                    // Linke Kante
-              Matrix[g][N_rows - i][N_columns] = 2 + h * i;           // Rechte Kante
-            }
-            Matrix[g][0][N_columns - i] = 3 + h * i;                       // Obere Kante
-          }
-          if (arguments->rank == arguments->size - 1) {
-            if (i <= N_rows) {
-              Matrix[g][i][0] = 3 + (1 - (h * (i + from)));                    // Linke Kante
-              Matrix[g][N_rows - i][N_columns] = 2 + h * (i + from);           // Rechte Kante
-            }
-            Matrix[g][N_rows][i] = 3 - (h * i);                            // Untere Kante
-          }
-          
-        } else {
+        if (options->method == METH_GAUSS_SEIDEL || arguments->size == 1) {
           Matrix[g][i][0] = 3 + (1 - (h * i));              // Linke Kante
           Matrix[g][N_rows][i] = 3 - (h * i);               // Untere Kante
           Matrix[g][N_rows - i][N_columns] = 2 + h * i;     // Rechte Kante
           Matrix[g][0][N_columns - i] = 3 + h * i;          // Obere Kante
+        } else {
+          if (arguments->rank == 0) {
+            Matrix[g][0][N_columns - i] = 3 + h * i;          // Obere Kante
+          }
+          if (arguments->rank + 1 == arguments->size) {
+            Matrix[g][N_rows][i] = 3 - (h * i);               // Untere Kante
+          }
+          if (i <= N_rows) {
+            Matrix[g][N_rows - i][N_columns] = 2 + h * (N_columns - (from + N_rows - 1) + i); // Rechte Kante
+            Matrix[g][i][0] = 3 + (1 - (h * (i + from - 1)));              // Linke Kante
+          }
         }
       }
     }
   }
-  printf("Ich lebe immer noch");
 }
 
 /* ************************************************************************ */
@@ -564,7 +552,8 @@ int main(int argc, char **argv) {
   if  (options.method == METH_GAUSS_SEIDEL || arguments.size == 1) {
     displayMatrix(&arguments, &results, &options);
   } else {
-    int from = arguments.rank * (arguments.N_rows - 1) + 1;
+    int from = 0;
+    from = arguments.rank * (arguments.N_rows - 1) + 1;
     if ((uint64_t)arguments.rank >= (arguments.N_columns - 1) % arguments.size) {
       from += (arguments.N_columns - 1) % arguments.size;
     }
