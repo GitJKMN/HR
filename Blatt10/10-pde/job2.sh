@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=original_reference_values
 #SBATCH --partition=west
-#SBATCH --nodes=1
-#SBATCH --ntasks=3
+#SBATCH --nodes=2
+#SBATCH --ntasks=10
 #SBATCH --cpus-per-task=4
 #SBATCH --time=01:00:00
-#SBATCH --output=job_output3.txt
-#SBATCH --error=job_output3.txt
+#SBATCH --output=job_output4.txt
+#SBATCH --error=job_output4.txt
 
 # Slurm gibt die Anzahl Tasks
 NTASKS=$SLURM_NTASKS

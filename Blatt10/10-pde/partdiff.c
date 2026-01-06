@@ -157,14 +157,14 @@ static void initMatrices(struct calculation_arguments *arguments,
           Matrix[g][0][N_columns - i] = 3 + h * i;          // Obere Kante
         } else {
           if (arguments->rank == 0) {
-            Matrix[g][0][N_columns - i] = 3 + h * i;          // Obere Kante
+            Matrix[g][0][N_columns - i] = 3 + h * i;                                             // Obere Kante
           }
           if (arguments->rank + 1 == arguments->size) {
-            Matrix[g][N_rows][i] = 3 - (h * i);               // Untere Kante
+            Matrix[g][N_rows][i] = 3 - (h * i);                                                  // Untere Kante
           }
           if (i <= N_rows) {
-            Matrix[g][N_rows - i][N_columns] = 2 + h * (N_columns - (from + N_rows - 1) + i); // Rechte Kante
-            Matrix[g][i][0] = 3 + (1 - (h * (i + from - 1)));              // Linke Kante
+            Matrix[g][N_rows - i][N_columns] = 2 + h * (N_columns - (from + N_rows - 1) + i);    // Rechte Kante
+            Matrix[g][i][0] = 3 + (1 - (h * (i + from - 1)));                                    // Linke Kante
           }
         }
       }
