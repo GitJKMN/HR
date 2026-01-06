@@ -6,7 +6,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000000 s 
+Berechnungszeit:    0.000001 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -33,7 +33,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000000 s 
+Berechnungszeit:    0.000001 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -87,7 +87,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000024 s 
+Berechnungszeit:    0.000014 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -114,7 +114,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.009079 s 
+Berechnungszeit:    0.007987 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -141,7 +141,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.389688 s 
+Berechnungszeit:    0.387659 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -168,7 +168,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000021 s 
+Berechnungszeit:    0.000016 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -195,7 +195,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000058 s 
+Berechnungszeit:    0.000039 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -222,7 +222,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.148587 s 
+Berechnungszeit:    0.146490 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -249,7 +249,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.638869 s 
+Berechnungszeit:    0.635091 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -276,7 +276,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000026 s 
+Berechnungszeit:    0.000017 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -303,7 +303,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000214 s 
+Berechnungszeit:    0.000158 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -330,7 +330,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.020462 s 
+Berechnungszeit:    0.018974 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -357,7 +357,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    1.654476 s 
+Berechnungszeit:    1.635107 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -384,7 +384,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000117 s 
+Berechnungszeit:    0.000091 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -411,7 +411,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000283 s 
+Berechnungszeit:    0.000227 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -438,7 +438,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.462256 s 
+Berechnungszeit:    0.437109 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -465,7 +465,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    2.810192 s 
+Berechnungszeit:    2.804495 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -492,8 +492,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000388 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000010 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 0
@@ -519,8 +519,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000379 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000011 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
@@ -546,8 +546,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001186 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000020 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 0
@@ -573,8 +573,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.028840 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000103 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 0
@@ -600,8 +600,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.002544 s 
-Speicherbedarf:     10.245819 MiB
+Berechnungszeit:    0.001938 s 
+Speicherbedarf:     9.986588 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
 Stoerfunktion:      f(x,y) = 0
@@ -627,8 +627,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.074328 s 
-Speicherbedarf:     10.245819 MiB
+Berechnungszeit:    0.121330 s 
+Speicherbedarf:     9.986588 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
 Stoerfunktion:      f(x,y) = 0
@@ -654,14 +654,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.037754 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000104 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 0
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 104
-Norm des Fehlers:   4.12336686213e-05
+Norm des Fehlers:   9.95468258624e-05
 
 Matrix:
  4.00000000 3.87500000 3.75000000 3.62500000 3.50000000 3.37500000 3.25000000 3.12500000 3.00000000
@@ -681,14 +681,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.100968 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000260 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 0
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 280
-Norm des Fehlers:   3.66062735679e-11
+Norm des Fehlers:   8.83755291170e-11
 
 Matrix:
  4.00000000 3.87500000 3.75000000 3.62500000 3.50000000 3.37500000 3.25000000 3.12500000 3.00000000
@@ -708,14 +708,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    2.521913 s 
-Speicherbedarf:     0.149384 MiB
+Berechnungszeit:    0.135718 s 
+Speicherbedarf:     0.120865 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
 Stoerfunktion:      f(x,y) = 0
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 5388
-Norm des Fehlers:   3.16575947550e-05
+Norm des Fehlers:   9.99613530737e-05
 
 Matrix:
  4.00000000 3.87500000 3.75000000 3.62500000 3.50000000 3.37500000 3.25000000 3.12500000 3.00000000
@@ -735,14 +735,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    15.104435 s 
-Speicherbedarf:     0.149384 MiB
+Berechnungszeit:    0.678154 s 
+Speicherbedarf:     0.120865 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
 Stoerfunktion:      f(x,y) = 0
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 27064
-Norm des Fehlers:   3.15765191772e-11
+Norm des Fehlers:   9.99262894652e-11
 
 Matrix:
  4.00000000 3.87500000 3.75000000 3.62500000 3.50000000 3.37500000 3.25000000 3.12500000 3.00000000
@@ -762,8 +762,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001193 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000035 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
@@ -789,8 +789,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.031143 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000251 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
@@ -816,8 +816,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.009315 s 
-Speicherbedarf:     10.245819 MiB
+Berechnungszeit:    0.018565 s 
+Speicherbedarf:     9.986588 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
@@ -843,8 +843,8 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.242662 s 
-Speicherbedarf:     10.245819 MiB
+Berechnungszeit:    1.617546 s 
+Speicherbedarf:     9.986588 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
@@ -870,14 +870,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.031200 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000227 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 85
-Norm des Fehlers:   3.81608898932e-05
+Norm des Fehlers:   9.97192108820e-05
 
 Matrix:
  0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
@@ -897,14 +897,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.093200 s 
-Speicherbedarf:     0.002884 MiB
+Berechnungszeit:    0.000628 s 
+Speicherbedarf:     0.001236 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 260
-Norm des Fehlers:   3.66693897469e-11
+Norm des Fehlers:   9.58217949432e-11
 
 Matrix:
  0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
@@ -924,14 +924,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    1.839434 s 
-Speicherbedarf:     0.149384 MiB
+Berechnungszeit:    0.632046 s 
+Speicherbedarf:     0.120865 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 2907
-Norm des Fehlers:   3.15723974524e-05
+Norm des Fehlers:   9.99760566214e-05
 
 Matrix:
  0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
@@ -951,14 +951,14 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    12.203059 s 
-Speicherbedarf:     0.149384 MiB
+Berechnungszeit:    5.419620 s 
+Speicherbedarf:     0.120865 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
 Stoerfunktion:      f(x,y) = 2pi^2*sin(pi*x)sin(pi*y)
 Terminierung:       Hinreichende Genaugkeit
 Anzahl Iterationen: 24583
-Norm des Fehlers:   3.15634740566e-11
+Norm des Fehlers:   9.99480498365e-11
 
 Matrix:
  0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000

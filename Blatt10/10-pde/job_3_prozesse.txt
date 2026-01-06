@@ -60,7 +60,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000002 s 
+Berechnungszeit:    0.000001 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -87,7 +87,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000018 s 
+Berechnungszeit:    0.000014 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -114,7 +114,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.010125 s 
+Berechnungszeit:    0.010246 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -141,7 +141,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.389641 s 
+Berechnungszeit:    0.390320 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -168,7 +168,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000020 s 
+Berechnungszeit:    0.000022 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -195,7 +195,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000052 s 
+Berechnungszeit:    0.000042 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -222,7 +222,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.150155 s 
+Berechnungszeit:    0.153589 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -249,7 +249,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.641871 s 
+Berechnungszeit:    0.638944 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -276,7 +276,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000016 s 
+Berechnungszeit:    0.000017 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -303,7 +303,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000221 s 
+Berechnungszeit:    0.000175 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -330,7 +330,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.020329 s 
+Berechnungszeit:    0.020381 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -357,7 +357,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    1.643477 s 
+Berechnungszeit:    1.646021 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         100
@@ -384,7 +384,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000107 s 
+Berechnungszeit:    0.000136 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -411,7 +411,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000344 s 
+Berechnungszeit:    0.000318 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         0
@@ -438,7 +438,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.443380 s 
+Berechnungszeit:    0.443901 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -465,7 +465,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    2.824852 s 
+Berechnungszeit:    2.835621 s 
 Speicherbedarf:     0.000000 MiB
 Berechnungsmethode: Gauß-Seidel
 Interlines:         10
@@ -492,7 +492,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000025 s 
+Berechnungszeit:    0.000069 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -519,7 +519,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000026 s 
+Berechnungszeit:    0.000035 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -546,7 +546,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000122 s 
+Berechnungszeit:    0.000105 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -573,7 +573,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001111 s 
+Berechnungszeit:    0.000906 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -600,7 +600,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001288 s 
+Berechnungszeit:    0.000991 s 
 Speicherbedarf:     10.035965 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
@@ -627,7 +627,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.047467 s 
+Berechnungszeit:    0.046845 s 
 Speicherbedarf:     10.035965 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
@@ -654,7 +654,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001286 s 
+Berechnungszeit:    0.001244 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -681,7 +681,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.002950 s 
+Berechnungszeit:    0.002608 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -708,7 +708,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.084670 s 
+Berechnungszeit:    0.082647 s 
 Speicherbedarf:     0.126297 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
@@ -735,7 +735,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.460784 s 
+Berechnungszeit:    0.449161 s 
 Speicherbedarf:     0.126297 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
@@ -762,7 +762,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.000114 s 
+Berechnungszeit:    0.000096 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -789,7 +789,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001186 s 
+Berechnungszeit:    0.001459 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -816,7 +816,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.008206 s 
+Berechnungszeit:    0.007872 s 
 Speicherbedarf:     10.035965 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
@@ -843,7 +843,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.552161 s 
+Berechnungszeit:    0.554498 s 
 Speicherbedarf:     10.035965 MiB
 Berechnungsmethode: Jacobi
 Interlines:         100
@@ -870,7 +870,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.001227 s 
+Berechnungszeit:    0.001499 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -897,7 +897,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.002909 s 
+Berechnungszeit:    0.002624 s 
 Speicherbedarf:     0.002060 MiB
 Berechnungsmethode: Jacobi
 Interlines:         0
@@ -924,7 +924,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    0.250009 s 
+Berechnungszeit:    0.248712 s 
 Speicherbedarf:     0.126297 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
@@ -951,7 +951,7 @@ Program for calculation of partial differential equations.
     Andreas C. Schmidt, TU München.
 ============================================================
 
-Berechnungszeit:    2.054494 s 
+Berechnungszeit:    2.076158 s 
 Speicherbedarf:     0.126297 MiB
 Berechnungsmethode: Jacobi
 Interlines:         10
