@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=original_reference_values
+#SBATCH --job-name=test_values_1_prozess
 #SBATCH --partition=west
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
