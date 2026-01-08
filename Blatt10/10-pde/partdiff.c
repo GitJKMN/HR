@@ -251,7 +251,6 @@ static void calculate(struct calculation_arguments const *arguments,
       term_iteration--;
     }
   }
-
   results->m = m2;
 }
 
@@ -651,7 +650,9 @@ int main(int argc, char **argv) {
   } else {
     calculateJacobi(&arguments, &results, &options);
   }
+  
   if (is_master) {
+    printf("Stat_precision from rank %d: %f\n", arguments.rank, results.stat_precision);
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
   }
