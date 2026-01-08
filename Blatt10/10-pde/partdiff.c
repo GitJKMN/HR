@@ -652,7 +652,6 @@ int main(int argc, char **argv) {
   }
   
   if (is_master) {
-    printf("Stat_precision from rank %d: %f\n", arguments.rank, results.stat_precision);
     gettimeofday(&comp_time, NULL);
     displayStatistics(&arguments, &results, &options);
   }
