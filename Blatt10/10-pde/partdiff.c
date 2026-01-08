@@ -300,6 +300,10 @@ static void calculateGS(struct calculation_arguments const *arguments,
 
     maxResiduum = 0;
 
+    MPI_Request requests[4];
+    int nreqs = 0;
+    MPI_Status statuses[4];
+
     /* over all rows*/
     for (i = 1; i < N_rows; i++) {
       double fpisin_i = 0.0;
@@ -336,12 +340,12 @@ static void calculateGS(struct calculation_arguments const *arguments,
       }
       /* send first row to previous rank */
       if (i == 1 && arguments->rank > 0 && term_iteration > 1) {
-        MPI_Send(Matrix_Out[1], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_BottomRow + results->stat_iteration, arguments->comm);
+        MPI_Issend(Matrix_Out[1], N_columns + 1, MPI_DOUBLE, arguments->rank - 1, tag_BottomRow + results->stat_iteration, arguments->comm, &requests[nreqs++]);
       }
       /* send last row to next rank */
       if (i == N_rows - 1 && arguments->rank < arguments->size - 1) {
-        MPI_Send(Matrix_Out[N_rows - 1], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_TopRow + results->stat_iteration, arguments->comm);
-        MPI_Send(&maxResiduum, 1, MPI_DOUBLE, arguments->rank + 1, tag_MaxResiduum + results->stat_iteration, arguments->comm);
+        MPI_Issend(Matrix_Out[N_rows - 1], N_columns + 1, MPI_DOUBLE, arguments->rank + 1, tag_TopRow + results->stat_iteration, arguments->comm, &requests[nreqs++]);
+        MPI_Issend(&maxResiduum, 1, MPI_DOUBLE, arguments->rank + 1, tag_MaxResiduum + results->stat_iteration, arguments->comm, &requests[nreqs++]);
       }
     }
     results->stat_iteration++;
@@ -369,6 +373,7 @@ static void calculateGS(struct calculation_arguments const *arguments,
     } else if (last_cycle && options->termination == TERM_PREC) {
       term_iteration--;
     }
+    MPI_Waitall(nreqs, requests, statuses);
   }
   double global_maxResiduum;
   MPI_Allreduce(&maxResiduum, &global_maxResiduum, 1, MPI_DOUBLE, MPI_MAX, arguments->comm);
