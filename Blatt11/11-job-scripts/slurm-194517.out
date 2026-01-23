@@ -1,0 +1,2 @@
+wrong number of arguments (0)
+Usage: ./SLURM_generator.sh <case_file_name> <executable_file> <output_directory>
