@@ -166,7 +166,7 @@ static void calculate(struct calculation_arguments const *arguments,
   int m1, m2;         /* used as indices for old and new matrices */
   double star;        /* four times center value minus 4 neigh.b values */
   double residuum;    /* residuum of current iteration */
-  double maxResiduum; /* maximum residuum value of a slave in iteration */
+  double maxResiduum = 0; /* maximum residuum value of a slave in iteration */
 
   int const N = arguments->N;
   double const h = arguments->h;
@@ -191,6 +191,10 @@ static void calculate(struct calculation_arguments const *arguments,
   }
 
   omp_set_num_threads(options->number);
+  #pragma omp parallel default(none) \
+  private(i, j, residuum, star) \
+  shared(arguments, options, results, N, fpisin, pih, m1, m2, term_iteration) \
+  reduction(max:maxResiduum)
   while (term_iteration > 0) {
     double **Matrix_Out = arguments->Matrix[m1];
     double **Matrix_In = arguments->Matrix[m2];
@@ -198,7 +202,8 @@ static void calculate(struct calculation_arguments const *arguments,
     maxResiduum = 0;
 
     /* over all rows */
-    #pragma omp parallel for if (options->method == METH_JACOBI) default(none) private(i, j, residuum, star) shared(Matrix_In, Matrix_Out, N, fpisin, pih, options, term_iteration) reduction(max:maxResiduum)
+    //#pragma omp parallel for if (options->method == METH_JACOBI) default(none) private(i, j, residuum, star) shared(Matrix_In, Matrix_Out, N, fpisin, pih, options, term_iteration) reduction(max:maxResiduum)
+    #pragma omp for
     for (i = 1; i < N; i++) {
       double fpisin_i = 0.0;
 
@@ -225,23 +230,26 @@ static void calculate(struct calculation_arguments const *arguments,
       }
     }
 
-    results->stat_iteration++;
-    results->stat_precision = maxResiduum;
+    #pragma omp single
+    {
+      results->stat_iteration++;
+      results->stat_precision = maxResiduum;
 
-    /* exchange m1 and m2 */
-    i = m1;
-    m1 = m2;
-    m2 = i;
+      /* exchange m1 and m2 */
+      i = m1;
+      m1 = m2;
+      m2 = i;
 
-    /* check for stopping calculation depending on termination method */
+      /* check for stopping calculation depending on termination method */
 
-    
-    if (options->termination == TERM_PREC) {
-      if (maxResiduum < options->term_precision) {
-        term_iteration = 0;
+      
+      if (options->termination == TERM_PREC) {
+        if (maxResiduum < options->term_precision) {
+          term_iteration = 0;
+        }
+      } else if (options->termination == TERM_ITER) {
+        term_iteration--;
       }
-    } else if (options->termination == TERM_ITER) {
-      term_iteration--;
     }
   }
 
